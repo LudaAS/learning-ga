@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Print info
         run: |
-          ls
+          ls /
           pwd
           docker ps
       
