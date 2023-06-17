@@ -1,16 +1,16 @@
 # When specifying that a job has a container, that job is run IN the container.
 # It does not have access to docker.
 
-name: Service containers
+name: Container with service
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/service-containers.yml'
+      - '.github/workflows/container-with-service.yml'
 
 jobs:
-  service-containers:
+  container-with-service:
     runs-on: ubuntu-latest
     container: node:18-bullseye
     services:
