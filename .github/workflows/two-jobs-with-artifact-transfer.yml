@@ -1,0 +1,39 @@
+name: Two jobs with artifact transfer
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/two-jobs-with-artifact-transfer.yml'
+
+jobs:
+  job-one:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Create a file and tar it
+        run: |
+          echo "Hi from job 1" > hi.txt
+          tar -czf hi.tar.gz hi.txt
+      - name: Upload tar
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: hi-tar
+          path: hi.tar.gz
+          if-no-files-found: error
+          retention-days: 1
+          
+  job-two:
+    runs-on: ubuntu-latest
+    needs: job-one
+    
+    steps:
+      - name: Download tar
+        uses: actions/download-artifact@v3.0.2
+        with:
+          name: hi-tar
+          
+      - name: Untar and print file
+        run: |
+          tar -xzf hi.tar.gz && rm hi.tar.gz
+          cat hi.txt
