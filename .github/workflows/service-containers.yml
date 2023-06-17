@@ -17,8 +17,10 @@ jobs:
     steps:
       - name: Print info
         run: |
-          ls
+          lsb-release-a
+          ls /
           pwd
-          docker ps
+          # This doesn't work; we are running inside a container, it doesn't have docker.
+          #docker ps
       
     
