@@ -1,0 +1,25 @@
+name: Using http-service
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/using-http-service.yml'
+
+jobs:
+  using-http-service:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.2
+        with:
+          node-version: 18
+          
+      - name: Start http-server
+        run: |
+          echo "hello" > hello.txt
+          npx http-server -p 4321
+          
+        
+    
