@@ -19,7 +19,11 @@ jobs:
       - name: Start http-server
         run: |
           echo "hello" > hello.txt
-          npx http-server -p 4321
+          cat hello.txt
+          npx http-server -p 4321 &
+          sleep 5
+          ps aux | grep http-server
+          curl http://localhost:4321/hello.txt
           
         
     
