@@ -1,3 +1,5 @@
+# Running docker ps will show the mongodb container process
+
 name: VM with service
 
 on:
