@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Print info
         run: |
+          lsb_release -a
           ls /
           pwd
           docker ps
