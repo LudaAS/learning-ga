@@ -1,0 +1,19 @@
+name: Just the VM
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/just-the-vm.yml'
+
+jobs:
+  just-the-vm:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Print info
+        run: |
+          ls
+          pwd
+          docker ps
+      
