@@ -1,3 +1,6 @@
+# When specifying that a job has a container, that job is run IN the container.
+# It does not have access to docker.
+
 name: Service containers
 
 on:
@@ -17,10 +20,5 @@ jobs:
     steps:
       - name: Print info
         run: |
-          lsb_release -a
-          ls /
+          node -v
           pwd
-          # This doesn't work; we are running inside a container, it doesn't have docker.
-          #docker ps
-      
-    
