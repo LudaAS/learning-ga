@@ -1,0 +1,12 @@
+name: Service containers
+
+on: workflow_dispatch
+
+jobs:
+  service-containers:
+    runs-on: ubuntu-latest
+    container: node:18-bullseye
+    services:
+      mongodb:
+        image: mongo:latest
+    
