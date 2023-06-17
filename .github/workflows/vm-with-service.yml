@@ -1,0 +1,22 @@
+name: VM with service
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/vm-with-service.yml'
+
+jobs:
+  vm-with-service:
+    runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        
+    steps:
+      - name: Print info
+        run: |
+          docker ps
+          pwd
