@@ -1,6 +1,10 @@
 name: Service containers
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/service-containers.yml'
 
 jobs:
   service-containers:
@@ -12,6 +16,9 @@ jobs:
         
     steps:
       - name: Print info
-        run: ls
+        run: |
+          ls
+          pwd
+          ls /
       
     
