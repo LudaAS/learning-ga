@@ -9,4 +9,9 @@ jobs:
     services:
       mongodb:
         image: mongo:latest
+        
+    steps:
+      - name: Print info
+        run: ls
+      
     
