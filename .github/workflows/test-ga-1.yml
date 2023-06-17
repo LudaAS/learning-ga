@@ -1,0 +1,8 @@
+name: Test GA 1
+
+on: workflow_dispatch
+
+jobs:
+  test-ga-1:
+    runs-on: ubuntu-latest
+    
